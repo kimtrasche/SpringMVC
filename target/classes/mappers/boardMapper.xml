@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.sinc.mybatis.mapper.board">
+	<!-- paramterType, resultType, id  -->
+	<insert id="insertRow" parameterType="board"> <!-- mybatis-config에 alias로 지정되어있음. -->
+	   INSERT INTO SINC_BOARD_TBL
+	   (     SEQ
+	       , TITLE
+	       , CONTENT
+	       , WRITER
+	       , REGDATE
+	       , CNT
+	   )
+	   VALUES 
+	   (
+	         BOARDSEQ.NEXTVAL
+	       , #{title}
+	       , #{content}
+	       , #{writer}
+	       , SYSDATE
+	       , 0
+	   )
+	</insert>
+	
+</mapper>  
+
+
+
+
+
+
+
+
+

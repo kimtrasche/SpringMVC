@@ -11,7 +11,7 @@
     
    <p/>
    
-   ${msg}
+   ${board.title}
 
 </body>
 </html>
