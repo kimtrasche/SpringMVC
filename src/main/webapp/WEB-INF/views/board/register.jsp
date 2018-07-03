@@ -15,7 +15,7 @@
 				</div>
 				<!-- /.box-header -->
 
-<form role="form" method="" action="">
+<form role="form" method="post" action="./registerBoard.sinc">
 	<div class="box-body">
 		<div class="form-group">
 			<label for="exampleInputEmail1">Title</label> 
@@ -30,7 +30,7 @@
 		<div class="form-group">
 			<label for="exampleInputEmail1">Writer</label> 
 			<input type="text"
-				name="writer" class="form-control" readonly value="${loginUser.name}">
+				name="writer" class="form-control">
 		</div>
 	</div>
 	<!-- /.box-body -->

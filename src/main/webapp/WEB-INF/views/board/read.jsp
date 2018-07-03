@@ -16,21 +16,21 @@
 				<!-- /.box-header -->
 				<div class="box-body">
 				
-					<input type="hidden" id="seq" value="${boardVO.seq}">
+					<input type="hidden" id="seq" value="${board.seq}">
 				
 					<div class="form-group">
 						<label for="exampleInputEmail1">Title</label> <input type="text"
-							name='title' class="form-control" value="OOO"
+							name='title' class="form-control" value="${board.title }"
 							readonly="readonly">
 					</div>
 					<div class="form-group">
 						<label for="exampleInputPassword1">Content</label>
 						<textarea class="form-control" name="content" rows="3"
-							readonly="readonly">OOO</textarea>
+							readonly="readonly">${board.content }</textarea>
 					</div>
 					<div class="form-group">
 						<label for="exampleInputEmail1">Writer</label> <input type="text"
-							name="writer" class="form-control" value="OOO"
+							name="writer" class="form-control" value="${board.writer }"
 							readonly="readonly">
 					</div>
 				</div>

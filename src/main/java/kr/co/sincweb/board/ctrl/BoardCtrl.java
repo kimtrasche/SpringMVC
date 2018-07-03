@@ -1,5 +1,7 @@
 package kr.co.sincweb.board.ctrl;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
@@ -23,7 +25,17 @@ public class BoardCtrl {
 	private SincService service;
 	
 	
-	@RequestMapping("/registerBoard.sinc")
+	
+	
+	@RequestMapping(value="/registerBoard.sinc", method=RequestMethod.GET)
+	public String registerForm(BoardVO obj) {
+		
+		return "/board/register";
+	}
+	
+	
+	
+	@RequestMapping(value="/registerBoard.sinc", method=RequestMethod.POST)
 	/* 파라미터 처리 유형 3가지
 		// public String register(BoardVO obj) {		// 1번 유형
 		// public String register(int sqq, String .~~) { // 2번 유형
@@ -34,21 +46,45 @@ public class BoardCtrl {
 		
 		System.out.println(">> " + obj);
 	
+		/*
 		obj.setTitle("수업 끝");
 		obj.setContent("뻥입니다.");
 		obj.setWriter("임섭순");
+		*/
 		
 		int flag = service.registerServiceRow(obj);
 		
 		System.out.println("return flag : " + flag);
 		
-		return "result";
+		return "redirect:/board/list.sinc";
+	}
+
+	
+	
+	@RequestMapping("/list.sinc")
+	public String list(Model model) {
+		
+		List<BoardVO> list = service.listService();
+		
+		model.addAttribute("boardlists", list);
+		
+		System.out.println("list > " + list.size());
+		
+		return "/board/listAll";
 	}
 	
 	
-	
-	
-	
+	@RequestMapping("/read.sinc")
+	//public String read(BoardVO vo) {
+	//public String read(int seq) {	
+	//public String read(@RequestParam(value="seq") int seq) {
+	public String read(@RequestParam(value="seq") int seq, Model model) {
+		
+		Object obj = service.readService(seq);
+		model.addAttribute("board", obj);
+		
+		return "/board/read";
+	}
 	
 	
 	/*

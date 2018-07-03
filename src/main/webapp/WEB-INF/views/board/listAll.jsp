@@ -6,6 +6,7 @@
 
 <%@include file="../include/header.jsp"%>
 
+    
 <!-- Main content -->
 <section class="content">
 	<div class="row">
@@ -18,33 +19,31 @@
 					<h3 class="box-title">LIST ALL PAGE</h3>
 				</div>
 				<div class="box-body">
-				
-<table class="table table-bordered">
-	<tr>
-		<th style="width: 10px">BNO</th>
-		<th>TITLE</th>
-		<th>WRITER</th>
-		<th>REGDATE</th>
-		<th style="width: 40px">VIEWCNT</th>
-	</tr>
-
-
-
-
-	<tr>
-		<td>OOO</td>
-		<td><a href=''>OOO</a></td>
-		<td>OOO</td>
-		<td>OOO</td>
-		<td><span class="badge bg-red">OOO</span></td>
-	</tr>
-
-
-</table>
-
+					<table class="table table-bordered">
+						<tr>
+							<th style="width: 10px">BNO</th>
+							<th>TITLE</th>
+							<th>WRITER</th>
+							<th>REGDATE</th>
+							<th style="width: 40px">VIEWCNT</th>
+						</tr>
+						
+						<c:forEach items="${boardlists}" var ="board">
+							<tr>
+								<td>${board.seq}</td>
+								<td><a href='/board/read.sinc?seq=${board.seq}'>${board.title}</a></td>
+								<td>${board.writer}</td>
+								<td>${board.regdate}</td>
+								<td><span class="badge bg-red">${board.cnt}</span></td>
+							</tr>
+						</c:forEach>
+						
+					</table>
 				</div>
 				<!-- /.box-body -->
-				<div class="box-footer">Footer</div>
+				<div class="box-footer">
+                    <button class="btn btn-primary" id="writeBtn">글쓰기</button>
+                </div>
 				<!-- /.box-footer-->
 			</div>
 		</div>
@@ -59,6 +58,15 @@
 
 	<script>
     
+	   $(document).ready(function() {
+		 
+		   $("#writeBtn").click(function() {
+			  alert("write btn click"); 
+			  
+			  location.href="/board/registerBoard.sinc";
+			  
+		   });
+	   })
         
     </script>
 

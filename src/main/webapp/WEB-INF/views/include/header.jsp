@@ -368,7 +368,7 @@
                 <li><a href="/board/listAll"><i class="fa fa-circle-o"></i> Dashboard v1</a></li> 
                 <li><a href="/board/listCri"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
                 --%>
-                <li><a href="/board/listPage.sinc?pageNo=1"><i class="fa fa-clipboard" aria-hidden="true"></i>게시판</a></li>
+                <li><a href="/board/list.sinc"><i class="fa fa-clipboard" aria-hidden="true"></i>게시판</a></li>
                 <li><a href="/resources/index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
               </ul>
             </li>

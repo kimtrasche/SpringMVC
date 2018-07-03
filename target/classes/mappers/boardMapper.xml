@@ -25,6 +25,29 @@
 	   )
 	</insert>
 	
+	<select id="listRow" resultType="board" flushCache="true" useCache="true"> <!-- flushCache나 useCache를 넣으면, insert~select를 하는 처리가 빨라짐. -->
+	   SELECT SEQ
+	        , TITLE
+	        , CONTENT
+	        , WRITER
+	        , REGDATE
+	        , CNT
+	     FROM SINC_BOARD_TBL
+	    ORDER BY REGDATE DESC
+	</select>
+	
+	
+	<select id="readRow" parameterType="java.util.HashMap" resultType="board"  flushCache="true" useCache="true" > 
+	   SELECT SEQ
+            , TITLE
+            , CONTENT
+            , WRITER
+            , REGDATE
+            , CNT
+         FROM SINC_BOARD_TBL
+        WHERE SEQ = #{seq} 
+	</select>
+	
 </mapper>  
 
 
