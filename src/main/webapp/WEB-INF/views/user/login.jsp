@@ -32,11 +32,11 @@
 
 <form action="login.sinc" method="post">
   <div class="form-group has-feedback">
-    <input type="text" name="id" class="form-control" placeholder="USER ID"/>
+    <input type="text" name="userid" class="form-control" placeholder="USER ID"/>
     <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
   </div>
   <div class="form-group has-feedback">
-    <input type="password" name="pwd" class="form-control" placeholder="Password"/>
+    <input type="password" name="userpw" class="form-control" placeholder="Password"/>
     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
   </div>
   <div class="row">

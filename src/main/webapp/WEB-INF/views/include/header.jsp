@@ -263,13 +263,15 @@
               <!-- User Account: style can be found in dropdown.less -->
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <img src="/resources/img/${loginUser.imgSrc }" class="user-image" alt="User Image"/>
-                  <span class="hidden-xs">${loginUser.name }</span>
+                  <%-- <img src="/resources/img/${loginUser.imgSrc }" class="user-image" alt="User Image"/> --%>
+                  <img src="/resources/img/images.png" class="user-image" alt="User Image"/>
+                  <span class="hidden-xs">${loginUser.username }</span>
                 </a>
                 <ul class="dropdown-menu">
                   
                   <li class="user-header">
-                    <img src="/resources/img/${loginUser.imgSrc }" class="img-circle" alt="User Image" />
+                   <%--  <img src="/resources/img/${loginUser.imgSrc }" class="img-circle" alt="User Image" /> --%>
+                      <img src="/resources/img/images.png" class="img-circle" alt="User Image" />
                     <p>
                       Alexander Pierce - Web Developer
                       <small>Member since Nov. 2012</small>
@@ -336,10 +338,11 @@
             </c:if>
             <c:if test="${loginUser != null }">
           	<div class="pull-left image">
-              <img src="/resources/img/${loginUser.imgSrc }" class="img-circle" alt="User Image" />
+              <img src="/resources/img/images.png" class="img-circle" alt="User Image" />
+<%--               <img src="/resources/img/${loginUser.imgSrc }" class="img-circle" alt="User Image" /> --%>
             </div>
             <div class="pull-left info">
-              <p>${loginUser.name }</p>
+              <p>${loginUser.username }</p>
 
               <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>

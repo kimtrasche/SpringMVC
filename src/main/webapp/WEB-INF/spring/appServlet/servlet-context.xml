@@ -23,6 +23,35 @@
 	
 	<context:component-scan base-package="kr.co.sincweb.**" /> <!--.** 추가함  -->
 	
+	<!-- Interceptor 설정 2018.07.05 -->
+	<beans:bean id="sample" class="kr.co.sincweb.interceptor.SampleInterceptor" />
+	   
+    <beans:bean id="Login" class="kr.co.sincweb.user.interceptor.LoginInterceptor" />
+    
+       
+    <beans:bean id="auth" class="kr.co.sincweb.auth.util.AuthInterceptor" />
+    
+    
+	<interceptors>
+	   <interceptor>
+	       <mapping path="/pre.sinc"/>
+	       <mapping path="/post.sinc"/>
+	       <beans:ref bean="sample"/>
+	   </interceptor>
+	   
+	   <interceptor>
+           <mapping path="/user/login.sinc"/>
+           <beans:ref bean="Login"/>
+       </interceptor>
+       
+       <interceptor>
+           <mapping path="/board/registerBoard.sinc"/>
+           <beans:ref bean="auth"/>
+       </interceptor>
+       
+    </interceptors>
 	
+	<!-- Interceptor 설정 끝-->
+    
 	
 </beans:beans>
