@@ -1,5 +1,6 @@
 package kr.co.sincweb.board.ctrl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -142,4 +144,22 @@ public class BoardCtrl {
 		return "bye"; 
 	}
 	*/
+	
+	@RequestMapping("/ajax.sinc")
+	@ResponseBody
+	public List<BoardVO> ajaxTest() {
+		System.out.print("ctrl ajax");
+		
+		BoardVO vo = new BoardVO();
+		vo.setTitle("ajaxTest");
+		vo.setContent("집에가고 싶다.");
+		vo.setWriter("김경태");
+		
+		List<BoardVO> list = new ArrayList<>();
+		list.add(vo);
+		list.add(vo);
+		list.add(vo);
+		
+		return list;
+	}
 }

@@ -22,7 +22,10 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 			
 			HttpSession session = request.getSession();
 			session.setAttribute("loginUser", user);
-			response.sendRedirect("/main.sinc");
+			
+			Object dest =session.getAttribute("dest");
+			
+			response.sendRedirect(dest != null ? (String) dest : "/main.sinc");
 		}
 	
 	}
