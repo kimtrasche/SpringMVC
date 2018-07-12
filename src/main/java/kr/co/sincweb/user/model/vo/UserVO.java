@@ -43,5 +43,10 @@ public class UserVO {
 	public void setUserpoint(int userpoint) {
 		this.userpoint = userpoint;
 	}
+	@Override
+	public String toString() {
+		return "UserVO [userid=" + userid + ", userpw=" + userpw + ", username=" + username + ", userpoint=" + userpoint
+				+ "]";
+	}
 	
 }

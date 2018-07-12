@@ -17,4 +17,11 @@ public class UserServiceImpl {
 		return dao.loginRow(user);
 	}
 	
+	public int existUser(UserVO user) {
+		return dao.existUser(user);
+	}
+	
+	public int joinUser(UserVO user) {
+		return dao.joinUser(user);
+	}
 }

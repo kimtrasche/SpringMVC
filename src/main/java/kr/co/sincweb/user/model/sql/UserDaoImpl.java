@@ -18,4 +18,14 @@ public class UserDaoImpl {
 		return session.selectOne("com.sinc.mybatis.mapper.user.loginRow", user);
 	}
 	
+
+	public int existUser(UserVO user) {
+		return session.selectOne("com.sinc.mybatis.mapper.user.existUser", user);
+	}
+	
+	
+	public int joinUser(UserVO user) {
+		return session.insert("com.sinc.mybatis.mapper.user.joinUser", user);
+	}
+	
 }

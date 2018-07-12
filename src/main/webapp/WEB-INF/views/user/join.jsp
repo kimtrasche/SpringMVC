@@ -38,19 +38,19 @@
 		<div class="login-box-body">
 			<p class="login-box-msg">Sign in to start your session</p>
 
-			<form action="join.sinc" method="post" enctype="multipart/form-data">
+			<form action="join.sinc" method="post" >
 				<div class="form-group has-feedback">
-					<input type="text" name="id" class="form-control"
+					<input type="text" name="userid" class="form-control"
 						placeholder="USER ID" /> <span
 						class="glyphicon glyphicon-envelope form-control-feedback"></span>
 				</div>
 				<div class="form-group has-feedback">
-					<input type="password" name="pwd" class="form-control"
+					<input type="password" name="userpw" class="form-control"
 						placeholder="Password" /> <span
 						class="glyphicon glyphicon-lock form-control-feedback"></span>
 				</div>
 				<div class="form-group has-feedback">
-					<input type="text" name="name" class="form-control"
+					<input type="text" name="username" class="form-control"
 						placeholder="Name" /> 
 					<span class="glyphicon glyphicon-user form-control-feedback"></span>
 				</div>
@@ -88,5 +88,16 @@
         });
       });
     </script>
+    
+    <script>
+    
+    var result = '${msg}';
+    
+    if(result == 'EXIST'){
+        alert("이미 존재하는 ID입니다. 새로 입력해주세요.");
+    }
+    
+    </script>
+    
 </body>
 </html>
