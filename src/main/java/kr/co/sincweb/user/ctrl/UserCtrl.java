@@ -52,7 +52,7 @@ public class UserCtrl {
 		}
 		
 		
-		// 없으면, 새로 등록 후 메인 로그인한채로 메인페이지 이동
+		// 없으면 로그인페이지 이동
 		int flag = service.joinService(user);
 		
 		System.out.println("return flag : " + flag);
