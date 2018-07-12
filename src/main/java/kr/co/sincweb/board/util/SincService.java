@@ -12,4 +12,6 @@ public interface SincService {
 	public List<BoardVO> listService();
 	
 	public Object readService(int seq);
+	
+	public List<BoardVO> searchService(String searchType, String searchKeyword);
 }

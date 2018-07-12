@@ -40,4 +40,9 @@ public class OracleDaoImpl implements SincDao {
 		// TODO Auto-generated method stub
 		return session.selectOne("com.sinc.mybatis.mapper.board.readRow", map);
 	}
-}
+
+	@Override
+	public List<BoardVO> searchRow(Map<String, String> map) {
+		// TODO Auto-generated method stub
+		return session.selectList("com.sinc.mybatis.mapper.board.searchRow", map);
+	}}

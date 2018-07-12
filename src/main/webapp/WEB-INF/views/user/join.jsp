@@ -35,10 +35,10 @@
 			<a href="/resources/index2.html"><b>Spring</b>Project</a>
 		</div>
 		<!-- /.login-logo -->
-		<div class="login-box-body">
+		<div class="login-box-body"> 
 			<p class="login-box-msg">Sign in to start your session</p>
 
-			<form action="join.sinc" method="post" >
+			<form action="/user/join.sinc" method="post" >
 				<div class="form-group has-feedback">
 					<input type="text" name="userid" class="form-control"
 						placeholder="USER ID" /> <span
@@ -55,10 +55,6 @@
 					<span class="glyphicon glyphicon-user form-control-feedback"></span>
 				</div>
 				
-				<div class="form-group has-feedback">
-					<input type="file" name="file" class="form-control" /> 
-					<span class="glyphicon glyphicon-picture form-control-feedback"></span>
-				</div>
 				<div class="row">
 			    <div class="col-xs-12">
 			      <button type="submit" class="btn btn-primary btn-block">Sign In</button>

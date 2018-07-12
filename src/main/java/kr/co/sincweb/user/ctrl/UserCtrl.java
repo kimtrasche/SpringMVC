@@ -6,8 +6,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.co.sincweb.user.model.vo.UserVO;
@@ -55,12 +53,12 @@ public class UserCtrl {
 		
 		
 		// 없으면, 새로 등록 후 메인 로그인한채로 메인페이지 이동
-		int flag = service.joinUser(user);
+		int flag = service.joinService(user);
 		
 		System.out.println("return flag : " + flag);
 		
 		rttr.addFlashAttribute(user);
 		
-		return "redirect:/user/login.sinc";
+		return "redirect:/user/loginForm.sinc";
 	}
 }

@@ -13,19 +13,20 @@
 	</select>
 	
 	
+    <insert id="joinRow" parameterType="user">
+    
+       INSERT INTO SINC_USER_TBL 
+              (USERID, USERPW ,USERNAME) 
+       VALUES (#{userid},#{userpw},#{username})
+    
+    </insert>
+    
 	<select id="existUser" parameterType="user"  resultType="int"> 
        SELECT COUNT(1) AS CNT
          FROM SINC_USER_TBL
         WHERE USERID = #{userid}
     </select>
-    
-    
-	
-	<insert id="joinUser" parameterType="user">
-	
-	   INSERT INTO SINC_USER_TBL (USERID, USERPW ,USERNAME) VALUES (#{userid},#{userpw},#{username})
-	
-	</insert>
+
 </mapper>  
 
 

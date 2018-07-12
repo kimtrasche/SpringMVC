@@ -30,4 +30,10 @@ public class MysqlDaoImpl implements SincDao {
 		return null;
 	}
 
+	@Override
+	public List<BoardVO> searchRow(Map<String, String> map) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

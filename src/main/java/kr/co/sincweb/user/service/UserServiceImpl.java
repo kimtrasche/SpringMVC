@@ -16,12 +16,15 @@ public class UserServiceImpl {
 	public UserVO login(UserVO user) {
 		return dao.loginRow(user);
 	}
+
+	// 회원등록
+	public int joinService(UserVO user) {
+		return dao.joinRow(user);
+	}
 	
+	// 기 등록 유저 체크
 	public int existUser(UserVO user) {
 		return dao.existUser(user);
 	}
-	
-	public int joinUser(UserVO user) {
-		return dao.joinUser(user);
-	}
+
 }

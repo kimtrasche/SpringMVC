@@ -52,4 +52,16 @@ public class BoardServiceImpl implements SincService {
 		return oracleDao.readServiceRow(map);
 	}
 
+
+	@Override
+	public List<BoardVO> searchService(String searchType, String searchKeyword) {
+		System.out.println("search >" +searchType +" |" + searchKeyword);
+		
+		Map<String, String> map = new HashMap<>();
+		map.put("searchType", searchType);
+		map.put("searchKeyword", searchKeyword);
+		
+		return oracleDao.searchRow(map);
+	}
+
 }

@@ -18,14 +18,13 @@ public class UserDaoImpl {
 		return session.selectOne("com.sinc.mybatis.mapper.user.loginRow", user);
 	}
 	
-
+	// 회원등록
+	public int joinRow(UserVO user) {
+		return session.insert("com.sinc.mybatis.mapper.user.joinRow", user);
+	}
+	
+	// 기 유저정보 체크
 	public int existUser(UserVO user) {
 		return session.selectOne("com.sinc.mybatis.mapper.user.existUser", user);
 	}
-	
-	
-	public int joinUser(UserVO user) {
-		return session.insert("com.sinc.mybatis.mapper.user.joinUser", user);
-	}
-	
 }

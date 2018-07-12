@@ -162,4 +162,16 @@ public class BoardCtrl {
 		
 		return list;
 	}
+	
+	@RequestMapping("/search.sinc")
+	@ResponseBody
+	public List<BoardVO> search(String searchType, String searchKeyword) {
+		System.out.println("csearch ajax: " + searchType + " | " + searchKeyword);
+		
+		List<BoardVO> list =service.searchService(searchType, searchKeyword);
+		
+		return list;
+	}
+	
+	
 }

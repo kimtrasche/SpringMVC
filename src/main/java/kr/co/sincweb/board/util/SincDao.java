@@ -12,4 +12,7 @@ public interface SincDao {
 	public List<BoardVO> listServiceRow();
 	
 	public BoardVO readServiceRow(Map<String, Object> map);
+	
+	public List<BoardVO> searchRow(Map<String, String> map);
+	
 }

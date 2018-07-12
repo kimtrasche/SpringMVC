@@ -14,6 +14,21 @@
 		<div class="col-md-12">
 			<!-- general form elements -->
 
+            <!-- general form elements -->
+            <div class='box'>
+                <div class="box-header with-border">
+                    <h3 class="box-title">Board List</h3>
+                </div>
+                <div class='box-body'>
+                    <!-- 추가  -->
+                    <select name="searchType" id="searchType">
+                        <option value="title">제목</option>
+                        <option value="writer">작성자</option>
+                    </select> 
+                    <input type="text" name='searchKeyword' id="searchKeyword">
+                    <button id='searchBtn'>Search</button>
+                </div>
+            </div>    
 			<div class="box">
 				<div class="box-header with-border">
 					<h3 class="box-title">LIST ALL PAGE</h3>
@@ -28,16 +43,19 @@
 							<th style="width: 40px">VIEWCNT</th>
 						</tr>
 						
-						<c:forEach items="${boardlists}" var ="board">
-							<tr>
-								<td>${board.seq}</td>
-								<td><a href='/board/read.sinc?seq=${board.seq}'>${board.title}</a></td>
-								<td>${board.writer}</td>
-								<td>${board.regdate}</td>
-								<td><span class="badge bg-red">${board.cnt}</span></td>
-							</tr>
-						</c:forEach>
+						<tbody id="tbody">
 						
+							<c:forEach items="${boardlists}" var ="board">
+								<tr>
+									<td>${board.seq}</td>
+									<td><a href='/board/read.sinc?seq=${board.seq}'>${board.title}</a></td>
+									<td>${board.writer}</td>
+									<td>${board.regdate}</td>
+									<td><span class="badge bg-red">${board.cnt}</span></td>
+								</tr>
+							</c:forEach>
+							
+						</tbody>
 					</table>
 				</div>
 				<!-- /.box-body -->
@@ -60,12 +78,39 @@
     
 	   $(document).ready(function() {
 		 
-		   $("#writeBtn").click(function() {
-			  alert("write btn click"); 
-			  
-			  location.href="/board/registerBoard.sinc";
-			  
-		   });
+		    // {선택자).함수이름();
+	   
+		    $("#searchBtn").click(function() {
+		    	 $("#tbody").empty();    // 지우기
+		    	
+		    	 /*
+		    	 var obj = {kkey:value, key:value}
+		    	 var ary=[{},{},{}]}
+		    	 
+		    	  */
+		    	 
+		    	 $.ajax({
+		    		 url  : "/board/search.sinc",
+		    	     type : "post",
+		    	     data : { searchType : $("#searchType").val(),
+		    	    	      searchKeyword : $("#searchKeyword").val()
+		    	     },
+		    	     dataType : "json", 
+		    	     success : function(list){
+		    	    	var txt="";
+                        $.each(list , function(idx, obj) {
+                            txt +="<tr>";
+                            txt +="<td>"+obj.seq+"</td>";
+                            txt +="<td><a href='/board/read.sinc?seq="+obj.seq+"'>"+obj.title+"</a></td>";
+                            txt +="<td>"+obj.writer+"</td>";
+                            txt +="<td>"+obj.regdate+"</td>";
+                            txt +="<td><span class='badge bg-red'>"+obj.cnt+"</span></td>";
+                            txt +="</tr>";
+                        });
+                        $("#tbody").html(txt);
+		    	     }
+		    	 });
+		    });
 	   })
         
     </script>
